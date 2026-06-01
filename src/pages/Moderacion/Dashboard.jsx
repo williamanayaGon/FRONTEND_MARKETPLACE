@@ -193,7 +193,7 @@ export default function Dashboard() {
 
           {mensaje && (
             <div style={{ background: '#EAF3DE', color: '#3B6D11', padding: '12px 16px', borderRadius: 10, marginBottom: 16, fontSize: 14 }}>
-              ✅ {mensaje}
+               {mensaje}
             </div>
           )}
 
@@ -207,7 +207,7 @@ export default function Dashboard() {
               {tab === 'cola' && (
                 cola.length === 0 ? (
                   <div style={{ textAlign: 'center', padding: '60px 20px', background: '#fff', borderRadius: 16 }}>
-                    <p style={{ fontSize: 48 }}>✅</p>
+                    <p style={{ fontSize: 48 }}></p>
                     <p style={{ fontWeight: 600, color: '#444441', fontSize: 18 }}>Cola vacía</p>
                     <p style={{ fontSize: 14, color: '#888780' }}>No hay publicaciones pendientes</p>
                   </div>
@@ -247,7 +247,7 @@ export default function Dashboard() {
                             target="_blank" rel="noreferrer"
                             style={{ display: 'inline-flex', alignItems: 'center', gap: 6, background: '#EAF3DE', color: '#3B6D11', padding: '6px 14px', borderRadius: 8, fontSize: 13, fontWeight: 600, textDecoration: 'none', marginBottom: 14 }}
                           >
-                            📱 Contactar: {pub.usuarios.whatsapp_numero}
+                             Contactar: {pub.usuarios.whatsapp_numero}
                           </a>
                         )}
 
@@ -297,7 +297,7 @@ export default function Dashboard() {
                             disabled={!!accionando}
                             style={{ flex: 1, padding: '11px', borderRadius: 10, border: 'none', background: '#FCEBEB', color: '#A32D2D', fontWeight: 700, fontSize: 13, cursor: 'pointer' }}
                           >
-                            ✕ Rechazar
+                             Rechazar
                           </button>
                         </div>
                       </div>
@@ -345,7 +345,7 @@ export default function Dashboard() {
                             target="_blank" rel="noreferrer"
                             style={{ display: 'inline-flex', alignItems: 'center', gap: 6, background: '#EAF3DE', color: '#3B6D11', padding: '6px 14px', borderRadius: 8, fontSize: 13, fontWeight: 600, textDecoration: 'none', marginBottom: 14 }}
                           >
-                            📱 Contactar vendedor
+                             Contactar vendedor
                           </a>
                         )}
 

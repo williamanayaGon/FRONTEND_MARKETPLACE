@@ -89,7 +89,7 @@ export default function Perfil() {
                 <p style={{ margin: 0, color: '#fff', fontWeight: 700, fontSize: 18 }}>{perfil?.nombre_completo}</p>
                 <p style={{ margin: '2px 0 0', color: '#85B7EB', fontSize: 13 }}>{perfil?.email}</p>
                 <span style={{ display: 'inline-block', marginTop: 6, background: 'rgba(255,255,255,0.15)', color: '#fff', fontSize: 11, fontWeight: 600, padding: '2px 10px', borderRadius: 20 }}>
-                  {perfil?.rol === 'moderador' ? '🛡️ Moderador' : perfil?.rol === 'admin' ? '👑 Admin' : '👤 Usuario'}
+                  {perfil?.rol === 'moderador' ? ' Moderador' : perfil?.rol === 'admin' ? ' Admin' : ' Usuario'}
                 </span>
               </div>
             </div>
@@ -97,7 +97,7 @@ export default function Perfil() {
             {/* Stats */}
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 10, marginTop: 20 }}>
               {[
-                { label: 'Reputación', value: `⭐ ${perfil?.calificacion_promedio?.toFixed(1) || '0.0'}` },
+                { label: 'Reputación', value: ` ${perfil?.calificacion_promedio?.toFixed(1) || '0.0'}` },
                 { label: 'Publicaciones', value: misPubs.length },
                 { label: 'Rol', value: perfil?.rol },
               ].map(({ label, value }) => (
@@ -207,7 +207,7 @@ export default function Perfil() {
           {tab === 'publicaciones' && (
             misPubs.length === 0 ? (
               <div style={{ textAlign: 'center', padding: '40px 20px', color: '#888780', background: '#fff', borderRadius: 16 }}>
-                <p style={{ fontSize: 36 }}>📦</p>
+                <p style={{ fontSize: 36 }}></p>
                 <p style={{ fontWeight: 600, color: '#444441' }}>Sin publicaciones</p>
                 <button
                   onClick={() => navigate('/crear')}
@@ -247,7 +247,7 @@ export default function Perfil() {
 
           {tab === 'historial' && (
             <div style={{ textAlign: 'center', padding: '40px 20px', color: '#888780', background: '#fff', borderRadius: 16 }}>
-              <p style={{ fontSize: 36 }}>📋</p>
+              <p style={{ fontSize: 36 }}></p>
               <p style={{ fontWeight: 600, color: '#444441' }}>Historial de transacciones</p>
               <p style={{ fontSize: 13 }}>Aquí aparecerán tus compras y ventas completadas</p>
             </div>
