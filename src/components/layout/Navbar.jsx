@@ -12,9 +12,9 @@ export default function Navbar() {
   const tabs = [
     { label: 'Feed',      icon: '', path: '/' },
     { label: 'Favoritos', icon: '♡',  path: '/favoritos' },
-    { label: 'Publicar',  icon: '+',  path: '/crear',    especial: true },
-    { label: 'Ofertas',   icon: '', path: '/ofertas' },
-    { label: 'Perfil',    icon: ini,  path: '/perfil' },
+    { label: 'Publicar',   icon: '+',  path: '/crear',     especial: true },
+    { label: 'Ofertas',    icon: '', path: '/ofertas' },
+    { label: 'Perfil',     icon: ini,  path: '/perfil' },
   ]
 
   return (
@@ -37,8 +37,12 @@ export default function Navbar() {
               borderRadius: especial ? '50%' : 0,
               width: especial ? 50 : 'auto',
               height: especial ? 50 : 'auto',
-              display: 'flex', flexDirection: 'column',
-              alignItems: 'center', gap: 2,
+              display: 'flex',
+              // CORRECCIÓN: Para el botón especial usamos alineación directa al centro sin columnas
+              flexDirection: especial ? 'row' : 'column',
+              alignItems: 'center',
+              justifyContent: especial ? 'center' : 'stretch',
+              gap: especial ? 0 : 2,
               cursor: 'pointer',
               padding: especial ? 0 : '0 10px',
               color: especial ? '#fff' : activo ? '#185FA5' : '#888780',
@@ -50,13 +54,18 @@ export default function Navbar() {
             }}
             aria-label={label}
           >
-            <span style={{ fontSize: especial ? 22 : label === 'Perfil' ? 13 : 20, lineHeight: 1,
+            <span style={{ 
+              fontSize: especial ? 26 : label === 'Perfil' ? 13 : 20, 
+              lineHeight: 1,
               background: label === 'Perfil' && !especial ? (activo ? '#185FA5' : '#888780') : 'none',
               color: label === 'Perfil' ? '#fff' : 'inherit',
-              borderRadius: '50%', width: label === 'Perfil' ? 28 : 'auto',
+              borderRadius: '50%', 
+              width: label === 'Perfil' ? 28 : 'auto',
               height: label === 'Perfil' ? 28 : 'auto',
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-              fontWeight: 700
+              display: 'flex', 
+              alignItems: 'center', 
+              justifyContent: 'center',
+              fontWeight: especial ? 400 : 700 // Un peso de fuente más ligero hace que el '+' se vea mejor balanceado
             }}>
               {icon}
             </span>
