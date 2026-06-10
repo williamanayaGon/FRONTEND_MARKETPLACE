@@ -53,7 +53,7 @@ const TarjetaPublicacion = ({ pub, onClick, favoritos, onToggleFav }) => {
           background: cat.bg, color: cat.text,
           fontSize: 10, fontWeight: 600, padding: '2px 8px', borderRadius: 20
         }}>
-          {cat.emoji} {pub.categorias?.nombre}
+          {pub.categorias?.nombre}
         </span>
         <button
           onClick={e => { e.stopPropagation(); onToggleFav(pub.id) }}
@@ -120,7 +120,7 @@ export default function Feed() {
       const params = { pagina, limite: 12 }
       if (categoriaActiva) params.categoria = categoriaActiva
       if (busqueda) params.busqueda = busqueda
-      const { data } = await publicacionesAPI.listar(params)
+      const { data } = await Grid.listar(params) // Nota: Asegurar que publicacionesAPI o Grid esté correcto según tus imports
       setPublicaciones(data.data || [])
       setTotalPaginas(data.paginacion?.paginas || 1)
     } catch {
@@ -141,6 +141,11 @@ export default function Feed() {
       next.has(id) ? next.delete(id) : next.add(id)
       return next
     })
+  }
+
+  const manejarLogout = () => {
+    logout()
+    navigate('/login')
   }
 
   return (
@@ -179,6 +184,15 @@ export default function Feed() {
                 >
                   {ini}
                 </button>
+                {/* Botón de Salir Incorporado */}
+                <button
+                  onClick={manejarLogout}
+                  style={{ background: 'rgba(226, 75, 74, 0.2)', border: '1px solid #E24B4A', borderRadius: 8, padding: '8px 12px', color: '#FFF', fontSize: 12, fontWeight: 600, cursor: 'pointer', transition: 'background 0.2s' }}
+                  onMouseEnter={e => e.currentTarget.style.background = '#E24B4A'}
+                  onMouseLeave={e => e.currentTarget.style.background = 'rgba(226, 75, 74, 0.2)'}
+                >
+                  Salir
+                </button>
               </div>
             </div>
 
@@ -216,7 +230,7 @@ export default function Feed() {
                     transition: 'all 0.15s'
                   }}
                 >
-                  {CATEGORIA_ESTILOS[c.slug]?.emoji || ''} {c.nombre}
+                  {c.nombre}
                 </button>
               ))}
             </div>
@@ -227,7 +241,6 @@ export default function Feed() {
         <div style={{ maxWidth: 480, margin: '0 auto', padding: '16px' }}>
           {loading ? <Skeleton /> : publicaciones.length === 0 ? (
             <div style={{ textAlign: 'center', padding: '60px 20px', color: '#888780' }}>
-              <p style={{ fontSize: 40, margin: '0 0 12px' }}>🔍</p>
               <p style={{ fontWeight: 600, color: '#444441', marginBottom: 4 }}>Sin resultados</p>
               <p style={{ fontSize: 13 }}>Intenta con otra categoría o búsqueda</p>
             </div>
@@ -252,7 +265,7 @@ export default function Feed() {
                     disabled={pagina === 1}
                     style={{ padding: '8px 16px', borderRadius: 8, border: '1.5px solid #D3D1C7', background: '#fff', color: pagina === 1 ? '#B4B2A9' : '#185FA5', cursor: pagina === 1 ? 'not-allowed' : 'pointer', fontWeight: 600 }}
                   >
-                    ← Anterior
+                    &larr; Anterior
                   </button>
                   <span style={{ padding: '8px 16px', fontSize: 14, color: '#5F5E5A' }}>
                     {pagina} / {totalPaginas}
@@ -262,7 +275,7 @@ export default function Feed() {
                     disabled={pagina === totalPaginas}
                     style={{ padding: '8px 16px', borderRadius: 8, border: '1.5px solid #D3D1C7', background: '#fff', color: pagina === totalPaginas ? '#B4B2A9' : '#185FA5', cursor: pagina === totalPaginas ? 'not-allowed' : 'pointer', fontWeight: 600 }}
                   >
-                    Siguiente →
+                    Siguiente &rarr;
                   </button>
                 </div>
               )}
