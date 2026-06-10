@@ -17,8 +17,8 @@ export const inicialesNombre = (nombre) =>
   nombre?.split(' ').map(p => p[0]).join('').slice(0, 2).toUpperCase() || 'UN'
 
 export const CATEGORIA_ESTILOS = {
-  objetos:   { bg: '#E6F1FB', text: '#185FA5', emoji: '📦' },
-  apuntes:   { bg: '#EAF3DE', text: '#3B6D11', emoji: '📝' },
-  asesorias: { bg: '#FAEEDA', text: '#854F0B', emoji: '🎓' },
-  servicios: { bg: '#FBEAF0', text: '#993556', emoji: '🛠️' },
+  objetos:   { bg: '#E6F1FB', text: '#185FA5', emoji: '' },
+  apuntes:   { bg: '#EAF3DE', text: '#3B6D11', emoji: '' },
+  asesorias: { bg: '#FAEEDA', text: '#854F0B', emoji: '' },
+  servicios: { bg: '#FBEAF0', text: '#993556', emoji: '' },
 }
