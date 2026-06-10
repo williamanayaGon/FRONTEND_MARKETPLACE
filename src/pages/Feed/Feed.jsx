@@ -113,22 +113,24 @@ export default function Feed() {
       .then(({ data }) => setCategorias(data.data || []))
       .catch(() => {})
   }, [])
-
-  const cargar = useCallback(async () => {
-    setLoading(true)
-    try {
-      const params = { pagina, limite: 12 }
-      if (categoriaActiva) params.categoria = categoriaActiva
-      if (busqueda) params.busqueda = busqueda
-      const { data } = await Grid.listar(params) // Nota: Asegurar que publicacionesAPI o Grid esté correcto según tus imports
-      setPublicaciones(data.data || [])
-      setTotalPaginas(data.paginacion?.paginas || 1)
-    } catch {
-      setPublicaciones([])
-    } finally {
-      setLoading(false)
-    }
-  }, [categoriaActiva, busqueda, pagina])
+const cargar = useCallback(async () => {
+  setLoading(true)
+  try {
+    const params = { pagina, limite: 12 }
+    if (categoriaActiva) params.categoria = categoriaActiva
+    if (busqueda) params.busqueda = busqueda
+    
+    // CORREGIDO: Volvemos a usar publicacionesAPI en lugar de Grid
+    const { data } = await publicacionesAPI.listar(params) 
+    
+    setPublicaciones(data.data || [])
+    setTotalPaginas(data.paginacion?.paginas || 1)
+  } catch {
+    setPublicaciones([])
+  } finally {
+    setLoading(false)
+  }
+}, [categoriaActiva, busqueda, pagina])
 
   useEffect(() => {
     const t = setTimeout(cargar, busqueda ? 400 : 0)
