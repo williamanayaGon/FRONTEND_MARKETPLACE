@@ -38,16 +38,15 @@ export default function Navbar() {
               width: especial ? 50 : 'auto',
               height: especial ? 50 : 'auto',
               display: 'flex',
-              // CORRECCIÓN: Para el botón especial usamos alineación directa al centro sin columnas
               flexDirection: especial ? 'row' : 'column',
               alignItems: 'center',
-              justifyContent: especial ? 'center' : 'stretch',
+              justifyContent: 'center', // Centra el contenido en cualquier caso
               gap: especial ? 0 : 2,
               cursor: 'pointer',
               padding: especial ? 0 : '0 10px',
               color: especial ? '#fff' : activo ? '#185FA5' : '#888780',
-              transform: especial ? 'translateY(-10px)' : 'none',
-              boxShadow: especial ? '0 4px 16px rgba(24,95,165,0.35)' : 'none',
+              transform: 'none', // CORRECCIÓN: Eliminamos el translateY(-10px) para que no flote hacia arriba
+              boxShadow: especial ? '0 4px 12px rgba(24,95,165,0.2)' : 'none',
               fontSize: especial ? 24 : 10,
               fontWeight: 500,
               transition: 'all 0.15s'
@@ -65,7 +64,7 @@ export default function Navbar() {
               display: 'flex', 
               alignItems: 'center', 
               justifyContent: 'center',
-              fontWeight: especial ? 400 : 700 // Un peso de fuente más ligero hace que el '+' se vea mejor balanceado
+              fontWeight: especial ? 400 : 700
             }}>
               {icon}
             </span>
