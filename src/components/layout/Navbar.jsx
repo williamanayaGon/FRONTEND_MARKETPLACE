@@ -10,10 +10,10 @@ export default function Navbar() {
   const ruta = location.pathname
 
   const tabs = [
-    { label: 'Feed',      icon: '🏠', path: '/' },
+    { label: 'Feed',      icon: '', path: '/' },
     { label: 'Favoritos', icon: '♡',  path: '/favoritos' },
     { label: 'Publicar',  icon: '+',  path: '/crear',    especial: true },
-    { label: 'Ofertas',   icon: '💬', path: '/ofertas' },
+    { label: 'Ofertas',   icon: '', path: '/ofertas' },
     { label: 'Perfil',    icon: ini,  path: '/perfil' },
   ]
 

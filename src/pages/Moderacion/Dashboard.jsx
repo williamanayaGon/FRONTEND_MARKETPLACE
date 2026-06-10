@@ -142,7 +142,7 @@ export default function Dashboard() {
               onClick={() => navigate('/')}
               style={{ width: '100%', padding: '10px', background: 'rgba(255,255,255,0.1)', border: 'none', borderRadius: 8, color: '#85B7EB', fontSize: 12, cursor: 'pointer', whiteSpace: 'nowrap' }}
             >
-              ← Volver al feed
+              &larr; Volver al feed
             </button>
           </div>
         </div>
@@ -159,7 +159,7 @@ export default function Dashboard() {
             aria-label={sidebarAbierto ? 'Cerrar menú' : 'Abrir menú'}
           >
             <span style={{ color: '#fff', fontSize: 18, lineHeight: 1 }}>
-              {sidebarAbierto ? '✕' : '☰'}
+              {sidebarAbierto ? '&#10005;' : '&#9776;'}
             </span>
           </button>
           <h1 style={{ margin: 0, color: '#fff', fontSize: 17, fontWeight: 700 }}>
@@ -207,7 +207,6 @@ export default function Dashboard() {
               {tab === 'cola' && (
                 cola.length === 0 ? (
                   <div style={{ textAlign: 'center', padding: '60px 20px', background: '#fff', borderRadius: 16 }}>
-                    <p style={{ fontSize: 48 }}></p>
                     <p style={{ fontWeight: 600, color: '#444441', fontSize: 18 }}>Cola vacía</p>
                     <p style={{ fontSize: 14, color: '#888780' }}>No hay publicaciones pendientes</p>
                   </div>
@@ -277,7 +276,7 @@ export default function Dashboard() {
                             disabled={!!accionando}
                             style={{ flex: 1, padding: '11px', borderRadius: 10, border: 'none', background: '#EAF3DE', color: '#3B6D11', fontWeight: 700, fontSize: 13, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6 }}
                           >
-                            {cargando(`/moderacion/${pub.id}/aprobar`) ? <Spinner size={14} color="#3B6D11" /> : '✓ Aprobar'}
+                            {cargando(`/moderacion/${pub.id}/aprobar`) ? <Spinner size={14} color="#3B6D11" /> : 'Aprobar'}
                           </button>
                           <button
                             onClick={() => accion(`/moderacion/${pub.id}/correccion`, { motivo_rechazo: motivoExtra[pub.id]?.comentario || 'Por favor corrige tu publicación' })}
@@ -310,7 +309,6 @@ export default function Dashboard() {
               {tab === 'reportes' && (
                 reportes.length === 0 ? (
                   <div style={{ textAlign: 'center', padding: '60px 20px', background: '#fff', borderRadius: 16 }}>
-                    <p style={{ fontSize: 48 }}>🎉</p>
                     <p style={{ fontWeight: 600, color: '#444441', fontSize: 18 }}>Sin reportes pendientes</p>
                   </div>
                 ) : (

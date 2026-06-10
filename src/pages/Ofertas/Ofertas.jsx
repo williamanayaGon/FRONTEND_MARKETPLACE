@@ -221,7 +221,7 @@ export default function Ofertas() {
 
             {/* Info correo */}
             <div style={{ background: 'rgba(255,255,255,0.12)', borderRadius: 10, padding: '8px 12px', marginBottom: 12, fontSize: 12, color: '#B5D4F4' }}>
-              ℹ️ Las alertas llegan a tu correo — entra aquí para responder
+              ℹ Las alertas llegan a tu correo — entra aquí para responder
             </div>
 
             {/* Tabs */}
@@ -267,7 +267,7 @@ export default function Ofertas() {
           ) : (
             enviadas.length === 0
               ? <div style={{ textAlign: 'center', padding: '60px 20px', color: '#888780' }}>
-                  <p style={{ fontSize: 40 }}>📤</p>
+                  <p style={{ fontSize: 40 }}></p>
                   <p style={{ fontWeight: 600, color: '#444441' }}>Sin ofertas enviadas</p>
                   <p style={{ fontSize: 13 }}>Explora el feed y haz ofertas en publicaciones que te interesen</p>
                 </div>

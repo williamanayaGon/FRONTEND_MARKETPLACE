@@ -46,7 +46,7 @@ const TarjetaPublicacion = ({ pub, onClick, favoritos, onToggleFav }) => {
       <div style={{ position: 'relative', height: 140, background: '#F1EFE8', overflow: 'hidden' }}>
         {img
           ? <img src={img} alt={pub.titulo} style={{ width: '100%', height: '100%', objectFit: 'cover' }} loading="lazy" />
-          : <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 32 }}>📷</div>
+          : <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 32 }}></div>
         }
         <span style={{
           position: 'absolute', top: 8, left: 8,
@@ -83,7 +83,7 @@ const TarjetaPublicacion = ({ pub, onClick, favoritos, onToggleFav }) => {
         </p>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: 4 }}>
           <span style={{ fontSize: 11, color: '#888780' }}>
-            ⭐ {pub.usuarios?.calificacion_promedio?.toFixed(1) || '5.0'}
+             {pub.usuarios?.calificacion_promedio?.toFixed(1) || '5.0'}
           </span>
           <span style={{ fontSize: 11, color: '#888780' }}>{tiempoAtras(pub.created_at)}</span>
         </div>
@@ -184,7 +184,7 @@ export default function Feed() {
 
             {/* Buscador */}
             <div style={{ position: 'relative', marginBottom: 4 }}>
-              <span style={{ position: 'absolute', left: 12, top: '50%', transform: 'translateY(-50%)', color: '#B4B2A9' }}>🔍</span>
+              <span style={{ position: 'absolute', left: 12, top: '50%', transform: 'translateY(-50%)', color: '#B4B2A9' }}></span>
               <input
                 type="search"
                 placeholder="Buscar productos o servicios..."
